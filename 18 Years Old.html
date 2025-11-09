@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🎉</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff8fb;
+  --accent:#ff9fcf;
+  --accent2:#ffd6e8;
+  --card:#ffffff;
+  --text:#3b2b2b;
+  --muted:#7a5a6a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;font-family:Poppins,sans-serif;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#fff5fb,#fff);overflow:hidden;}
+.viewport{width:350px;max-width:400px;background:rgba(255,255,255,0.95);border-radius:20px;padding:28px;box-shadow:0 12px 36px rgba(145,75,115,0.12);position:relative;overflow:hidden;z-index:1}
+header{text-align:center;margin-bottom:12px}
+header h1{font-family:'Dancing Script',cursive;font-size:28px;color:#7a2f57}
+header p.lead{color:var(--muted);margin-top:6px;font-size:14px}
+.wizard{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center}
+.step{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;transition:all 520ms cubic-bezier(.2,.9,.2,1);opacity:0;transform:translateY(10px) scale(0.98);pointer-events:none;text-align:center}
+.step.active{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.step h2{font-family:'Dancing Script',cursive;font-size:32px;color:#7a2f57;margin-bottom:12px}
+.step p{color:var(--muted);max-width:500px;margin-bottom:18px;font-size:16px}
+.btn{background:linear-gradient(180deg,var(--accent),var(--accent2));border:none;color:white;padding:12px 20px;border-radius:12px;font-weight:600;cursor:pointer;box-shadow:0 8px 18px rgba(255,130,180,0.16);margin:6px}
+.btn.ghost{background:transparent;color:#6a2e4b;border:1px solid rgba(106,46,75,0.06);box-shadow:none}
+.card{width:100%;max-width:640px;background:var(--card);border-radius:16px;padding:24px;text-align:center;box-shadow:0 8px 20px rgba(120,60,100,0.06);position:relative;overflow:hidden; z-index:1;}
+.card h3{font-size:20px;color:#6a2e4b;margin-bottom:8px}
+.card h2{font-size:20px;color:#6a2e4b;}
+.card p{color:var(--muted);margin-bottom:12px;font-size:16px}
+#cake-container{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:24px}
+.cake{width:200px;height:150px;position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column; border-radius:24px; top:30px;}
+.cake-layer{width:100%;height:25px;margin-bottom:1px;border-radius:12px;}
+.cake-layer:nth-child(1){background:#3f2b25;height: 25px;} /* layer bawah */
+.cake-layer:nth-child(2){background:#FF9FCF;height: 40px;} /* layer tengah */
+.cake-layer:nth-child(3){background:#d32f76; height: 45px;} /* layer atas coklat */
+.cake-text{font-family:'Dancing Script',cursive;color:#fff;font-size:22px;margin-top:12px;z-index:2;position:relative;}
+.candle{width:12px;height:40px;background:linear-gradient(180deg,#ffeb99,#ffd700);position:absolute;top:-23px;border-radius:6px;cursor:pointer;z-index:3}
+.flame{width:6px;height:12px;background:orange;border-radius:50%;position:absolute;top:-12px;left:3px;animation:flameAnim 1s infinite alternate}
+@keyframes flameAnim{0%{transform:scaleY(1)}50%{transform:scaleY(1.3)}100%{transform:scaleY(1)}}
+.overlay{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,159,207,0.1) 1px,transparent 1px);background-size:20px 20px;z-index:0}
+#ornaments{position:absolute;inset:0;pointer-events:none;z-index:0}
+.star{position:absolute;width:6px;height:6px;background:var(--accent);border-radius:50%;opacity:0.8}
+.balloon{position:absolute;width:25px;height:35px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;opacity:0;pointer-events:none;z-index:999;}
+@media(max-width:640px){.viewport{padding:18px}.step h2{font-size:26px}.cake{width:150px;height:120px}.cake-text{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="viewport">
+  <header></header>
+  <div class="wizard" id="wizard">
+    <!-- Step 1 -->
+    <section class="step active" id="step1">
+      <h2>Halo!</h2>
+      <p>Hari ini, hari spesial buat kamu soalnya nambah tuwa wkwk. Mungkin ini ga seberapa sih tapi..</p>
+      <button class="btn" onclick="nextStep()">Klik</button>
+    </section>
+    <!-- Step 2 Cake -->
+    <section class="step" id="step2">
+      <h2>Happy Birthday!</h2>
+      <div id="cake-container">
+        <div class="cake">
+          <div class="cake-layer"></div>
+          <div class="cake-layer"></div>
+          <div class="cake-layer"></div>
+          <div class="candle" id="candle"><div class="flame"></div></div>
+        </div>
+      </div>
+      <br>
+      <p>Klik lilin nya coi buat niup ceritanya</p>
+    </section>
+    <!-- Step 3 Final Card -->
+    <section class="step" id="step3">
+      <div class="card" id="finalCard">
+        <h3>Happy Eighteen!</h3>
+        <h2>Najla Silva Nabilah</h2>
+        <p>Wish you happiness</p>
+      </div>
+    </section>
+  </div>
+  <div class="overlay"></div>
+  <div id="ornaments"></div>
+</div>
+
+<script>
+// Wizard
+let current=1;
+const total=3;
+function showStep(n){
+  for(let i=1;i<=total;i++){
+    const el=document.getElementById('step'+i);
+    if(i===n) el.classList.add('active'); else el.classList.remove('active');
+  }
+}
+function nextStep(){ 
+  if(current<total) current++; 
+  showStep(current);
+  if(current===2) setupCake(); 
+}
+
+// Cake interactions & balloons
+function setupCake(){
+  const candle=document.getElementById('candle');
+  candle.addEventListener('click',function(){
+    const flame=candle.querySelector('.flame');
+    flame.style.display='none';
+    launchBalloons();
+    setTimeout(()=>{nextStep();},2000);
+  });
+}
+
+// Balloon animation dari bawah layar ke atas di depan card
+function launchBalloons(){
+  const card=document.getElementById('finalCard');
+  const rect=card.getBoundingClientRect();
+  const colors=['#ff4da6','#ffcc00','#00ccff','#ff66cc','#99ff66'];
+  for(let i=0;i<15;i++){
+    const balloon=document.createElement('div');
+    balloon.classList.add('balloon');
+    balloon.style.background=colors[Math.floor(Math.random()*colors.length)];
+    balloon.style.left=(rect.left + rect.width/2 + (Math.random()*60-30))+'px';
+    balloon.style.top=window.innerHeight+'px'; // mulai dari bawah layar
+    document.body.appendChild(balloon);
+    balloon.animate([
+      {transform:'translateY(0) scale(0.5)', opacity:0},
+      {transform:'translateY(-400px) scale(1)', opacity:1},
+      {transform:'translateY(-600px) scale(1.2)', opacity:0}
+    ],{duration:3000+Math.random()*1000,easing:'ease-out',fill:'forwards'});
+    setTimeout(()=>{balloon.remove();},4000);
+  }
+}
+
+// Ornament stars animation
+const ornamentContainer=document.getElementById('ornaments');
+for(let i=0;i<40;i++){
+  const star=document.createElement('div');
+  star.classList.add('star');
+  star.style.top=Math.random()*100+'%';
+  star.style.left=Math.random()*100+'%';
+  ornamentContainer.appendChild(star);
+  animateStar(star);
+}
+function animateStar(el){
+  const dur=2000+Math.random()*3000;
+  el.animate([{transform:'translateY(0) scale(1)',opacity:0.8},{transform:'translateY(-20px) scale(0.8)',opacity:0.1},{transform:'translateY(0) scale(1)',opacity:0.8}],{duration:dur,iterations:Infinity,easing:'ease-in-out'});
+}
+
+showStep(1);
+</script>
+</body>
+</html>
